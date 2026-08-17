@@ -7,6 +7,7 @@ use RajuBepary\LaravelModule\Commands\ModuleActivateCommand;
 use RajuBepary\LaravelModule\Commands\ModuleDeactivateCommand;
 use RajuBepary\LaravelModule\Commands\ModuleInstallCommand;
 use RajuBepary\LaravelModule\Commands\ModuleListCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeCommand;
 use RajuBepary\LaravelModule\Commands\ModuleSetupCommand;
 use RajuBepary\LaravelModule\Commands\ModuleUninstallCommand;
 use RajuBepary\LaravelModule\Hooks\HookManager;
@@ -30,6 +31,7 @@ class LaravelModuleServiceProvider extends PackageServiceProvider
                 ModuleDeactivateCommand::class,
                 ModuleUninstallCommand::class,
                 ModuleSetupCommand::class,
+                ModuleMakeCommand::class,
             ]);
     }
 
