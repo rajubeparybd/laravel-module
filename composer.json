@@ -36,7 +36,10 @@
         "psr-4": {
             "RajuBepary\\LaravelModule\\": "src/",
             "RajuBepary\\LaravelModule\\Database\\Factories\\": "database/factories/"
-        }
+        },
+        "files": [
+            "src/Hooks/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -48,9 +51,9 @@
         "post-autoload-dump": "@composer run prepare",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
+        "test": "vendor/bin/pest --parallel",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint --parallel"
     },
     "config": {
         "sort-packages": true,
@@ -65,7 +68,8 @@
                 "RajuBepary\\LaravelModule\\LaravelModuleServiceProvider"
             ],
             "aliases": {
-                "LaravelModule": "RajuBepary\\LaravelModule\\Facades\\LaravelModule"
+                "LaravelModule": "RajuBepary\\LaravelModule\\Facades\\LaravelModule",
+                "Hook": "RajuBepary\\LaravelModule\\Facades\\Hook"
             }
         }
     },

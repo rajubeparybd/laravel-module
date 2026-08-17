@@ -1,0 +1,11 @@
+{
+    "id": "invoices",
+    "name": "Invoices",
+    "description": "Invoice management with numbering, status lifecycle, and totals.",
+    "version": "1.0.0",
+    "author": "CRM Core Team",
+    "provider": "RajuBepary\\LaravelModule\\Tests\\Fixtures\\Modules\\Invoices\\InvoicesServiceProvider",
+    "requires": {
+        "customers": "^1.0"
+    }
+}

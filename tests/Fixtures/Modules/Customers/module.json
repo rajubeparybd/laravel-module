@@ -1,0 +1,12 @@
+{
+    "id": "customers",
+    "name": "Customers",
+    "description": "Customer relationship management: profiles, contacts details, and notes.",
+    "version": "1.0.0",
+    "author": "CRM Core Team",
+    "provider": "RajuBepary\\LaravelModule\\Tests\\Fixtures\\Modules\\Customers\\CustomersServiceProvider",
+    "protected": true,
+    "requires": {
+        "crm": "^1.0"
+    }
+}
