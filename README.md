@@ -1,19 +1,11 @@
-# This is my package laravel-module
+# Laravel Module
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rajubepary/laravel-module.svg?style=flat-square)](https://packagist.org/packages/rajubepary/laravel-module)
 [![GitHub Tests Action Status](https://github.com/spatie/package-laravel-module-laravel/actions/workflows/run-tests.yml/badge.svg)](https://github.com/rajubeparybd/laravel-module/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://github.com/spatie/package-laravel-module-laravel/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/rajubeparybd/laravel-module/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/rajubepary/laravel-module.svg?style=flat-square)](https://packagist.org/packages/rajubepary/laravel-module)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-module.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-module)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+A powerful and flexible modular architecture package for Laravel applications. This package allows you to seamlessly create, manage, and organize your Laravel application into modular components.
 
 ## Installation
 
@@ -23,38 +15,66 @@ You can install the package via composer:
 composer require rajubepary/laravel-module
 ```
 
-You can publish and run the migrations with:
+After installing the package, run the setup command. This will publish the configuration file and run the necessary migrations:
 
 ```bash
-php artisan vendor:publish --tag="laravel-module-migrations"
+php artisan lm:setup
+```
+
+If you prefer to do this manually, you can publish the config file and run migrations:
+
+```bash
+php artisan vendor:publish --tag="module-config"
 php artisan migrate
 ```
 
-You can publish the config file with:
+## Available Commands
 
-```bash
-php artisan vendor:publish --tag="laravel-module-config"
-```
+The package provides several Artisan commands to manage your modules. By default, they are prefixed with `lm:` (you can change this in the `laravel-module.php` config).
 
-This is the contents of the published config file:
+### Scaffolding
 
-```php
-return [
-];
-```
+- **Create a Module**: Generate a new module skeleton.
+    ```bash
+    php artisan lm:module:make {slug}
+    ```
+    _(Example: `php artisan lm:module:make customers` will create a `Customers` module with controllers, views, config, and routes)._
 
-Optionally, you can publish the views using
+### Management
 
-```bash
-php artisan vendor:publish --tag="laravel-module-views"
-```
+- **List Modules**: View all discovered modules and their statuses.
+    ```bash
+    php artisan lm:module:list
+    ```
+- **Install a Module**: Install a specific module.
+    ```bash
+    php artisan lm:module:install {slug}
+    ```
+- **Activate a Module**: Enable an installed module.
+    ```bash
+    php artisan lm:module:activate {slug}
+    ```
+- **Deactivate a Module**: Disable an active module.
+    ```bash
+    php artisan lm:module:deactivate {slug}
+    ```
+- **Uninstall a Module**: Remove a module entirely.
+    ```bash
+    php artisan lm:module:uninstall {slug}
+    ```
 
 ## Usage
 
-```php
-$laravelModule = new RajuBepary\LaravelModule();
-echo $laravelModule->echoPhrase('Hello, RajuBepary!');
-```
+When you create a module, a structured directory is created in `app/Modules` (or your configured path) with a `module.json` manifest, a service provider, controllers, routes, and views.
+
+Active modules are automatically discovered and loaded into your Laravel application, registering their routes, views, and navigation menus.
+
+You can customize the module path, navigation settings, and more in the published `config/laravel-module.php` file.
+
+## Hooks & Filters
+
+The package includes a built-in WordPress-style hook system to let modules interact without tight coupling.
+You can use `add_action`, `do_action`, `add_filter`, and `apply_filters` inside your modules.
 
 ## Testing
 
@@ -66,17 +86,9 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [Raju Bepary](https://github.com/rajubeparybdbd)
+- [Raju Bepary](https://github.com/rajubeparybd)
 - [All Contributors](../../contributors)
 
 ## License
