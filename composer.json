@@ -53,7 +53,8 @@
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest --parallel",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint --parallel"
+        "format": "vendor/bin/pint --parallel",
+        "ci:check": "@composer run format && @composer run analyse && @composer run test"
     },
     "config": {
         "sort-packages": true,

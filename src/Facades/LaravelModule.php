@@ -3,14 +3,15 @@
 namespace RajuBepary\LaravelModule\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use RajuBepary\LaravelModule\Support\ModuleManager;
 
 /**
- * @see \RajuBepary\LaravelModule\LaravelModule
+ * @see ModuleManager
  */
 class LaravelModule extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \RajuBepary\LaravelModule\LaravelModule::class;
+        return ModuleManager::class;
     }
 }

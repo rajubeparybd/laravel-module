@@ -141,7 +141,7 @@ class HookManager
 
         ksort($this->listeners[$hook]);
 
-        return array_merge(...array_values($this->listeners[$hook]));
+        return array_values(array_merge(...array_values($this->listeners[$hook])));
     }
 
     /**

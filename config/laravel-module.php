@@ -11,6 +11,7 @@ return [
     | This only applies when the request expects HTML.
     |
     */
+    /** @phpstan-ignore-next-line */
     'debug_hooks' => env('LARAVEL_MODULE_DEBUG', false),
 
     /*
