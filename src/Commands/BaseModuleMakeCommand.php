@@ -64,6 +64,7 @@ abstract class BaseModuleMakeCommand extends Command
     protected function getModulePath(string $module): string
     {
         $modulesPath = config('laravel-module.path', app_path('Modules'));
+
         return $modulesPath.'/'.$module;
     }
 

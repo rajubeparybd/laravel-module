@@ -5,6 +5,7 @@ namespace RajuBepary\LaravelModule\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RajuBepary\LaravelModule\LaravelModuleServiceProvider;
+use RajuBepary\LaravelModule\Support\ModuleManager;
 
 class TestCase extends Orchestra
 {
@@ -32,13 +33,15 @@ class TestCase extends Orchestra
         config()->set('laravel-module.path', __DIR__.'/Fixtures/Modules');
 
         // Prevent loading test modules during testing
-        $app->singleton(\RajuBepary\LaravelModule\Support\ModuleManager::class, function ($app) {
-            return new class($app) extends \RajuBepary\LaravelModule\Support\ModuleManager {
+        $app->singleton(ModuleManager::class, function ($app) {
+            return new class($app) extends ModuleManager
+            {
                 public function discover(): array
                 {
                     $modules = parent::discover();
+
                     // Filter out Test* modules to prevent them from being loaded
-                    return array_filter($modules, fn($key) => !str_starts_with($key, 'test'), ARRAY_FILTER_USE_KEY);
+                    return array_filter($modules, fn ($key) => ! str_starts_with($key, 'test'), ARRAY_FILTER_USE_KEY);
                 }
             };
         });

@@ -1,6 +1,5 @@
 <?php
 
-use RajuBepary\LaravelModule\Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use RajuBepary\LaravelModule\Support\ModuleManager;
@@ -18,9 +17,9 @@ uses()->group('module-make-commands')->beforeEach(function () {
     $moduleManager = app(ModuleManager::class);
 
     // Ensure database tables exist
-    if (!\Schema::hasTable('modules')) {
+    if (! Schema::hasTable('modules')) {
         // Create modules table for testing
-        \Schema::create('modules', function ($table) {
+        Schema::create('modules', function ($table) {
             $table->id();
             $table->string('slug')->unique();
             $table->string('name');
@@ -235,7 +234,7 @@ test('fails when module does not exist', function () {
             '--module' => 'NonExistentModule',
         ]);
         $this->fail('Expected RuntimeException was not thrown');
-    } catch (\RuntimeException $e) {
+    } catch (RuntimeException $e) {
         expect($e->getMessage())->toBe('Module [NonExistentModule] does not exist.');
     }
 });
