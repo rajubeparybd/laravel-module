@@ -8,6 +8,12 @@ use RajuBepary\LaravelModule\Commands\ModuleDeactivateCommand;
 use RajuBepary\LaravelModule\Commands\ModuleInstallCommand;
 use RajuBepary\LaravelModule\Commands\ModuleListCommand;
 use RajuBepary\LaravelModule\Commands\ModuleMakeCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeControllerCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeMigrationCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeMiddlewareCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeModelCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeRequestCommand;
+use RajuBepary\LaravelModule\Commands\ModuleMakeSeederCommand;
 use RajuBepary\LaravelModule\Commands\ModuleSetupCommand;
 use RajuBepary\LaravelModule\Commands\ModuleUninstallCommand;
 use RajuBepary\LaravelModule\Hooks\HookManager;
@@ -32,6 +38,12 @@ class LaravelModuleServiceProvider extends PackageServiceProvider
                 ModuleUninstallCommand::class,
                 ModuleSetupCommand::class,
                 ModuleMakeCommand::class,
+                ModuleMakeControllerCommand::class,
+                ModuleMakeModelCommand::class,
+                ModuleMakeRequestCommand::class,
+                ModuleMakeMiddlewareCommand::class,
+                ModuleMakeMigrationCommand::class,
+                ModuleMakeSeederCommand::class,
             ]);
     }
 

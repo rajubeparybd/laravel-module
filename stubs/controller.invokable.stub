@@ -1,0 +1,18 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\View\View;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request): View|JsonResponse
+    {
+        //
+    }
+}
